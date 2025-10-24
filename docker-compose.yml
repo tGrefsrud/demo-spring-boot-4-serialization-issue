@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: draft-postgres
+    environment:
+      POSTGRES_DB: draftdb
+      POSTGRES_USER: draftuser
+      POSTGRES_PASSWORD: draftpass
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U draftuser -d draftdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+
