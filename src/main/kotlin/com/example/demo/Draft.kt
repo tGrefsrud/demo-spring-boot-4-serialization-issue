@@ -1,9 +1,9 @@
 package com.example.demo
 
-import com.fasterxml.jackson.databind.JsonNode
 import jakarta.persistence.*
 import org.hibernate.annotations.JdbcTypeCode
 import org.hibernate.type.SqlTypes
+import tools.jackson.databind.JsonNode
 
 @Entity
 @Table(name = "draft")
